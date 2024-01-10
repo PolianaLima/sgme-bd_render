@@ -1,0 +1,24 @@
+FROM ubuntu:latest AS build
+
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+COPY . .
+
+RUN apt-get install maven -y
+RUN mvn clean install
+
+FROM openjdk:17-jdk-slim
+
+
+ARG username="root"
+ARG password="5316"
+ARG urldb="jdbc:postgresql://192.168.181.122:5432/bd_sgme?createDatabaseIfNotExist=true"
+
+ENV DATABASE_USERNAME $username
+ENV DATABASE_PASSWORD $password
+ENV DATABASE_URL $urldb
+
+EXPOSE 8080
+COPY --from=build /target/sgme.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
