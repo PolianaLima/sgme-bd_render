@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@CrossOrigin("https://sgme-fe-render.onrender.com")
+@CrossOrigin("https://sgme-front-end-vf-zx6w.vercel.app")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("fornecedores")
