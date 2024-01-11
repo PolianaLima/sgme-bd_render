@@ -19,6 +19,6 @@ ENV DATABASE_PASSWORD $password
 ENV DATABASE_URL $urldb
 
 EXPOSE 8080
-COPY --from=build /target/sgme.jar app.jar
+COPY --from=build /target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]

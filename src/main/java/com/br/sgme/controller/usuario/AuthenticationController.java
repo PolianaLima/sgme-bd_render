@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("https://sgme-fe-render.onrender.com")
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {
